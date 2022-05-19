@@ -1,0 +1,73 @@
+ext {
+
+    minSDK = 21
+    targetSDK = 31
+    compileSDK = 31
+
+    kotlinVersion = '1.5.30'
+    kotlinxCoroutinesVersion = '1.5.2'
+
+    ktxVersion = '1.6.0'
+
+    lifeCycleVersion = '2.4.1'
+    lifeCycleExtensionsVersion = '1.1.1'
+
+    multidexVersion = "2.0.1"
+
+    //Glide
+    glideVersion = "4.12.0"
+    //Design
+    appCompatVersion = '1.3.1'
+    constrainVersion = '2.1.0'
+    recyclerViewVersion = '1.2.1'
+    materialVersion = '1.4.0'
+    //Koin
+    koinVersion = '3.1.2'
+    //Retrofit
+    retrofitVersion = '2.9.0'
+    okttpInterceptorVersion = '5.0.0-alpha.2'
+    //Gson
+    gsonVersion = '2.8.9'
+
+    //Test
+    junitVersion = '4.13.2'
+    mockkVersion = '1.12.0'
+
+    projectDependencies = [
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            kotlinxCoroutines    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion",
+
+            appCompat            : "androidx.appcompat:appcompat:$appCompatVersion",
+            constraintlayout     : "androidx.constraintlayout:constraintlayout:$constrainVersion",
+            recyclerView         : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            material             : "com.google.android.material:material:$materialVersion",
+
+            ktx                  : "androidx.core:core-ktx:$ktxVersion",
+
+            glide                : "com.github.bumptech.glide:glide:$glideVersion",
+
+            lifeCycle            : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
+            lifeCycleExtensions  : "android.arch.lifecycle:extensions:$lifeCycleExtensionsVersion",
+
+            koin                 : "io.insert-koin:koin-android:$koinVersion",
+            koinCore             : "io.insert-koin:koin-core:$koinVersion",
+
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okHttpLogInterceptor : "com.squareup.okhttp3:logging-interceptor:$okttpInterceptorVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion"
+    ]
+
+    testDependencies = [
+            jraskaLiveDataTest   : "com.jraska.livedata:testing-ktx:$jraskaLiveDataTestVersion",
+            androidxCoreTesting  : "androidx.arch.core:core-testing:$androidxArchCoreTestingVersion",
+            kotlinxCoroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesVersion",
+            kotlinReflect        : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+            junit                : "junit:junit:$junitVersion",
+            androidxExtJunit     : "androidx.test.ext:junit:$androidxExtJunitVersion",
+            runner               : "androidx.test:runner:$runnerVersion",
+            koin                 : "io.insert-koin:koin-test:$koinVersion",
+            mockk                : "io.mockk:mockk:$mockkVersion",
+            navigationTest       : "androidx.navigation:navigation-testing:$navigationVersion",
+    ]
+}
