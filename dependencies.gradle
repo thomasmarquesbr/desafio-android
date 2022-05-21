@@ -57,6 +57,9 @@ ext {
 
             ktx                  : "androidx.core:core-ktx:$ktxVersion",
 
+            navigationFragment   : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUI         : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+
             glide                : "com.github.bumptech.glide:glide:$glideVersion",
 
             lifeCycle            : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
