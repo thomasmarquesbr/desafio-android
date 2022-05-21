@@ -1,5 +1,5 @@
 include ':presentationLayer'
-include ':archtecture-framework'
+include ':architecture-framework'
 include ':domainLayer'
 include ':dataLayer'
 include ':components'

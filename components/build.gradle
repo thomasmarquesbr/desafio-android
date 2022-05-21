@@ -4,11 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    def globalConfiguration = rootProject.extensions.getByName("ext")
 
+    compileSdkVersion globalConfiguration["compileSDK"]
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
