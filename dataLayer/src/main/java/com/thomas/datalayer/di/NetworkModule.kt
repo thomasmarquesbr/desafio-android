@@ -1,6 +1,7 @@
 package com.thomas.datalayer.di
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.thomas.datalayer.BuildConfig
 import com.thomas.datalayer.features.users.UsersAPI
 import okhttp3.OkHttpClient
@@ -24,6 +25,10 @@ val networkModule = module {
         )
     }
 
+    factory {
+        providesGson()
+    }
+
     single(named(picPayRestApiScopeName)) {
         provideRetrofit(
             okHttpClient = get(),
@@ -42,6 +47,8 @@ fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
     interceptor.level = HttpLoggingInterceptor.Level.BODY
     return interceptor
 }
+
+fun providesGson(): Gson = GsonBuilder().create()
 
 fun provideRetrofit(
     okHttpClient: OkHttpClient,

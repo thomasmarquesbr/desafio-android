@@ -82,4 +82,8 @@ abstract class BaseFragment<DATA_BINDING : ViewDataBinding> : Fragment() {
     open fun showLoadingView() {
         this.viewModel.setStatusProgress(true)
     }
+
+    open fun showMessage(message: String? = null) {
+        this.viewModel.showMessage(message)
+    }
 }

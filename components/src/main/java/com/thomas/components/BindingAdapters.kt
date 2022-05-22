@@ -1,6 +1,7 @@
 package com.thomas.components
 
 import android.graphics.drawable.Drawable
+import android.view.View
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
@@ -14,4 +15,14 @@ fun loadImage(view: CircleImageView, url: String?, placeHolder: Drawable? = null
             view.setImageDrawable(placeHolder)
         }
     }
+}
+
+@BindingAdapter("app:visible_or_invisible")
+fun setVisibleOrInvisible(view: View, status: Boolean) {
+    view.visibility = if (status) View.VISIBLE else View.INVISIBLE
+}
+
+@BindingAdapter("app:visible_or_gone")
+fun setVisibleOrGone(view: View, status: Boolean) {
+    view.visibility = if (status) View.VISIBLE else View.GONE
 }

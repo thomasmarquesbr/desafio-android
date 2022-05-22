@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface UsersAPI {
 
     @GET("users")
-    fun getUsers(): Response<List<UserDTO>>
+    suspend fun getUsers(): Response<List<UserDTO>>
 
 }

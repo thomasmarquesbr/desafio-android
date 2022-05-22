@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,6 +16,21 @@
         android:orientation="vertical"
         tools:context=".features.users.ContactsFragment">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:visible_or_gone="@{!viewmodel.showProgress &amp;&amp; viewmodel.showMessage == null}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <include
+            layout="@layout/loading_view"
+            app:visible_or_gone="@{viewmodel.showProgress &amp;&amp; viewmodel.showMessage == null}"/>
+
+        <include
+            layout="@layout/screen_message"
+            app:visible_or_gone="@{!viewmodel.showProgress &amp;&amp; viewmodel.showMessage != null}"/>
 
     </LinearLayout>
 </layout>

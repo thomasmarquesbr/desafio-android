@@ -19,4 +19,10 @@ class UserDTO(
         id = this.id ?: 0,
         username = this.username ?: ""
     )
+
+    companion object {
+        fun mapFrom(listDto: List<UserDTO>): List<UserModel> {
+            return listDto.map { it.mapTo() }
+        }
+    }
 }

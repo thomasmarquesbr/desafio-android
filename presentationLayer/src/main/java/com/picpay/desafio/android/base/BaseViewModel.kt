@@ -20,6 +20,9 @@ open class BaseViewModel(
     private val _showProgress = MutableLiveData(false)
     val showProgress: MutableLiveData<Boolean> get() = _showProgress
 
+    private val _showMessage = MutableLiveData<String?>(null)
+    val showMessage: MutableLiveData<String?> get() = _showMessage
+
     fun goTo(directions: NavDirections) {
         navigate(NavigationCommand.To(directions))
     }
@@ -43,6 +46,10 @@ open class BaseViewModel(
 
     fun setStatusProgress(status: Boolean) {
         _showProgress.postValue(status)
+    }
+
+    fun showMessage(message: String?) {
+        _showMessage.postValue(message)
     }
 
     open fun onBackPressed() {

@@ -10,24 +10,24 @@ import com.thomas.domainlayer.features.users.model.UserModel
 
 class GetContactsUseCase(
     private val usersRepository: UsersRepository
-): NoParamsBaseAsyncUseCase<ResultWrapper<List<UserModel>, GetUsersFailureFactory<BaseError>>>() {
+): NoParamsBaseAsyncUseCase<ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>>>() {
 
-    override suspend fun runAsync(): ResultWrapper<List<UserModel>, GetUsersFailureFactory<BaseError>> {
+    override suspend fun runAsync(): ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>> {
         return usersRepository.getUsers()
-            .transformError(FailureHandler(GetUsersFailureFactory()).transform())
+            .transformError(FailureHandler(GetContactsFailureFactory()).transform())
     }
 }
 
-open class GetUsersFailureFactory<ERROR_DATA> : FailureFactory<ERROR_DATA>() {
-    class BaseFailure<ERROR_DATA>(override var errorData: ERROR_DATA? = null) : GetUsersFailureFactory<ERROR_DATA>()
-    class GenericFailure<ERROR_DATA> : GetUsersFailureFactory<ERROR_DATA>()
+open class GetContactsFailureFactory<ERROR_DATA> : FailureFactory<ERROR_DATA>() {
+    class BaseFailure<ERROR_DATA>(override var errorData: ERROR_DATA? = null) : GetContactsFailureFactory<ERROR_DATA>()
+    class GenericFailure<ERROR_DATA> : GetContactsFailureFactory<ERROR_DATA>()
 
     // Demonstração de mapeamento de erros específicos
-    class CustomError1Failure<ERROR_DATA> : GetUsersFailureFactory<ERROR_DATA>()
-    class CustomError2Failure<ERROR_DATA> : GetUsersFailureFactory<ERROR_DATA>()
-    class CustomError3Failure<ERROR_DATA> : GetUsersFailureFactory<ERROR_DATA>()
+    class CustomError1Failure<ERROR_DATA> : GetContactsFailureFactory<ERROR_DATA>()
+    class CustomError2Failure<ERROR_DATA> : GetContactsFailureFactory<ERROR_DATA>()
+    class CustomError3Failure<ERROR_DATA> : GetContactsFailureFactory<ERROR_DATA>()
 
-    override fun getFailure(errorTranslate: Int): GetUsersFailureFactory<ERROR_DATA> {
+    override fun getFailure(errorTranslate: Int): GetContactsFailureFactory<ERROR_DATA> {
         return when (errorTranslate) {
             ErrorTranslate.BASE_FAILURE.code -> BaseFailure()
             ErrorTranslate.CUSTOM_ERROR_1.code -> CustomError1Failure()
