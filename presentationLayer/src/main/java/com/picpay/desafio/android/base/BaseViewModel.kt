@@ -39,6 +39,10 @@ open class BaseViewModel(
         navigate(NavigationCommand.BackToLogin)
     }
 
+    fun goToHome() {
+        navigate(NavigationCommand.GoToHome)
+    }
+
     @VisibleForTesting
     fun navigate(command: NavigationCommand) {
         _navigation.value = Event(command)

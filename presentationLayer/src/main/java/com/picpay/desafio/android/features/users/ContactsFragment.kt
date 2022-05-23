@@ -6,6 +6,8 @@ import com.picpay.desafio.android.R
 import com.picpay.desafio.android.base.BaseFragment
 import com.picpay.desafio.android.databinding.FragmentContactsBinding
 import com.thomas.archtecture_framework.state.ViewState
+import com.thomas.archtecture_framework.wrapper.BaseError
+import com.thomas.domainlayer.features.users.GetContactsFailureFactory
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
@@ -37,7 +39,7 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
                 }
                 is ViewState.Error -> {
                     hideLoadingView()
-                    showMessage(getString(R.string.error))
+                    handleError(it.error)
                 }
                 is ViewState.Loading -> {
                     showLoadingView()
@@ -48,6 +50,22 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
                 }
             }
         }
+    }
+
+    private fun handleError(error: GetContactsFailureFactory<BaseError>?) {
+        val errorMessage = when (error) {
+            is GetContactsFailureFactory.CustomError1Failure ->
+                getString(R.string.error_cause_1)
+            is GetContactsFailureFactory.CustomError2Failure ->
+                getString(R.string.error_cause_2)
+            is GetContactsFailureFactory.CustomError3Failure ->
+                getString(R.string.error_cause_3)
+            is GetContactsFailureFactory.BaseFailure ->
+                error.errorData?.message ?: getString(R.string.error)
+            else ->
+                getString(R.string.error)
+        }
+        showMessage(errorMessage)
     }
 
 }

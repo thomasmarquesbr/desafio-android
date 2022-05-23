@@ -59,10 +59,15 @@ dependencies {
     implementation projectDependencies.navigationFragment
     implementation projectDependencies.navigationUI
 
-//    implementation 'com.google.code.gson:gson:2.8.9'
-//
-//    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-//    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-//    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
+    testImplementation(testFixtures(project(":domainLayer")))
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.kotlinxCoroutinesTest
+    testImplementation testDependencies.androidxCoreTesting
+    testImplementation testDependencies.jraskaLiveDataTest
+    testImplementation testDependencies.kotlinReflect
+
+    androidTestImplementation testDependencies.androidxExtJunit
+    androidTestImplementation testDependencies.navigationTest
 
 }

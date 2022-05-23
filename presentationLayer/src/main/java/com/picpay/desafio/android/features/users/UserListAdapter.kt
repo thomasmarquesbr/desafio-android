@@ -48,7 +48,6 @@ class UserListAdapter : ListAdapter<UserUIModel, RecyclerView.ViewHolder>(Compan
                 return ItemViewHolder(binding)
             }
         }
-
     }
 
 }
