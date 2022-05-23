@@ -1,4 +1,4 @@
-package com.thomas.datalayer.features.users.model
+package com.thomas.datalayer.features.users.remote.model
 
 import com.google.gson.annotations.SerializedName
 import com.thomas.domainlayer.features.users.model.UserModel

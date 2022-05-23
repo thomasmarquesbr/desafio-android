@@ -1,6 +1,7 @@
 package com.thomas.domainlayer.features.users
 
 import com.thomas.archtecture_framework.failure.FailureFactory
+import com.thomas.archtecture_framework.usecase.BaseAsyncUseCase
 import com.thomas.archtecture_framework.usecase.NoParamsBaseAsyncUseCase
 import com.thomas.archtecture_framework.wrapper.BaseError
 import com.thomas.archtecture_framework.wrapper.ResultWrapper
@@ -10,16 +11,24 @@ import com.thomas.domainlayer.features.users.model.UserModel
 
 class GetContactsUseCase(
     private val usersRepository: UsersRepository
-): NoParamsBaseAsyncUseCase<ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>>>() {
+) : BaseAsyncUseCase<ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>>, GetContactsUseCase.Params>() {
 
-    override suspend fun runAsync(): ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>> {
-        return usersRepository.getUsers()
-            .transformError(FailureHandler(GetContactsFailureFactory()).transform())
+    class Params(val fromCache: Boolean)
+
+    override suspend fun runAsync(params: Params): ResultWrapper<List<UserModel>, GetContactsFailureFactory<BaseError>> {
+        return usersRepository.getUsers(
+            fromCache = params.fromCache
+        ).transformError(
+            FailureHandler(GetContactsFailureFactory())
+                .transform()
+        )
     }
 }
 
 open class GetContactsFailureFactory<ERROR_DATA> : FailureFactory<ERROR_DATA>() {
-    class BaseFailure<ERROR_DATA>(override var errorData: ERROR_DATA? = null) : GetContactsFailureFactory<ERROR_DATA>()
+    class BaseFailure<ERROR_DATA>(override var errorData: ERROR_DATA? = null) :
+        GetContactsFailureFactory<ERROR_DATA>()
+
     class GenericFailure<ERROR_DATA> : GetContactsFailureFactory<ERROR_DATA>()
 
     // Demonstração de mapeamento de erros específicos

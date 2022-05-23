@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PicPay</string>
-    <string name="title">Contatos</string>
+    <string name="contacts">Contatos</string>
     <string name="empty_contact_list">A lista de contatos está vazia</string>
     <string name="error_cause_1">Ocorreu um erro. Motivo 1.</string>
     <string name="error_cause_2">Ocorreu um erro. Motivo 2.</string>

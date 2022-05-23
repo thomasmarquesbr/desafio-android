@@ -1,8 +1,8 @@
 package com.thomas.datalayer
 
-import com.thomas.datalayer.features.users.UsersAPI
-import com.thomas.datalayer.features.users.UsersAPIDataSource
-import com.thomas.datalayer.features.users.model.UserDTO
+import com.thomas.datalayer.features.users.remote.UsersAPI
+import com.thomas.datalayer.features.users.remote.UsersAPIDataSource
+import com.thomas.datalayer.features.users.remote.model.UserDTO
 import com.thomas.fakes.FakeUserDTO
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

@@ -6,5 +6,5 @@ import com.thomas.domainlayer.base.ErrorDetailModel
 import com.thomas.domainlayer.features.users.model.UserModel
 
 interface UsersRepository {
-    suspend fun getUsers(): ResultWrapper<List<UserModel>, ErrorWrapper<ErrorDetailModel>>
+    suspend fun getUsers(fromCache: Boolean): ResultWrapper<List<UserModel>, ErrorWrapper<ErrorDetailModel>>
 }

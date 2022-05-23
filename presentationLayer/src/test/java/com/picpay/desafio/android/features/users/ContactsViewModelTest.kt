@@ -63,7 +63,7 @@ class ContactsViewModelTest {
             FakeUserModel.mock()
         )
         coEvery {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         } returns FakeResultWrapper.mockSuccess(
             success = fakeList
         )
@@ -73,7 +73,7 @@ class ContactsViewModelTest {
         viewModel.loadDetails()
 
         coVerify {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         }
 
         observer.assertHasValue()
@@ -86,7 +86,7 @@ class ContactsViewModelTest {
     @Test
     fun `loadDetails SHOULD set live data WHEN request failure`() {
         coEvery {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         } returns FakeResultWrapper.mockError(
             error = GetContactsFailureFactory.BaseFailure()
         )
@@ -96,7 +96,7 @@ class ContactsViewModelTest {
         viewModel.loadDetails()
 
         coVerify {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         }
 
         observer.assertHasValue()
@@ -109,7 +109,7 @@ class ContactsViewModelTest {
     @Test
     fun `loadDetails SHOULD set live data WHEN request returns emptyList`() {
         coEvery {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         } returns FakeResultWrapper.mockSuccess(
             success = listOf()
         )
@@ -119,7 +119,7 @@ class ContactsViewModelTest {
         viewModel.loadDetails()
 
         coVerify {
-            getContactsUseCase.runAsync()
+            getContactsUseCase.runAsync(any())
         }
 
         observer.assertHasValue()

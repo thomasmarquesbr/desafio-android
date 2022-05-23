@@ -16,6 +16,10 @@
         android:orientation="vertical"
         tools:context=".features.users.ContactsFragment">
 
+        <include
+            layout="@layout/screen_title"
+            app:value="@{@string/contacts}" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_contacts"
             android:layout_width="match_parent"
@@ -30,7 +34,8 @@
 
         <include
             layout="@layout/screen_message"
-            app:visible_or_gone="@{!viewmodel.showProgress &amp;&amp; viewmodel.showMessage != null}"/>
+            app:visible_or_gone="@{!viewmodel.showProgress &amp;&amp; viewmodel.showMessage != null}"
+            app:value="@{viewmodel.showMessage}"/>
 
     </LinearLayout>
 </layout>

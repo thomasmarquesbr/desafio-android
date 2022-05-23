@@ -3,7 +3,7 @@ package com.thomas.datalayer.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.thomas.datalayer.BuildConfig
-import com.thomas.datalayer.features.users.UsersAPI
+import com.thomas.datalayer.features.users.remote.UsersAPI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named

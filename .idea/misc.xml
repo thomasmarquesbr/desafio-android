@@ -16,7 +16,7 @@
         <entry key="presentationLayer/src/main/res/drawable/ic_launcher_background.xml" value="0.576" />
         <entry key="presentationLayer/src/main/res/drawable/ic_round_account_circle.xml" value="0.576" />
         <entry key="presentationLayer/src/main/res/layout/activity_users_nav_flow.xml" value="0.22727272727272727" />
-        <entry key="presentationLayer/src/main/res/layout/fragment_contacts.xml" value="0.22727272727272727" />
+        <entry key="presentationLayer/src/main/res/layout/fragment_contacts.xml" value="0.5" />
         <entry key="presentationLayer/src/main/res/layout/list_item_user.xml" value="0.6458333333333334" />
         <entry key="presentationLayer/src/main/res/layout/list_item_user_adapter.xml" value="0.6880208333333333" />
       </map>

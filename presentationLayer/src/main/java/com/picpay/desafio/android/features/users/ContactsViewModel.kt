@@ -22,10 +22,11 @@ class ContactsViewModel(
         MutableLiveData<ViewState<List<UserUIModel>, GetContactsFailureFactory<BaseError>>>()
     val getContactsState: LiveData<ViewState<List<UserUIModel>, GetContactsFailureFactory<BaseError>>> get() = _getContactsState
 
-    fun loadDetails() {
+    fun loadDetails(cached: Boolean = false) {
         _getContactsState.postValue(ViewState.Loading())
         viewModelScope.launch(dispatcherIO) {
-            val resultWrapper = getContactsUseCase.runAsync()
+            val params = GetContactsUseCase.Params(fromCache = cached)
+            val resultWrapper = getContactsUseCase.runAsync(params)
             val viewState = loadViewState(resultWrapper.transformSuccess {
                 UserUIModel.mapFrom(it)
             })

@@ -1,10 +1,10 @@
-package com.thomas.datalayer.features.users
+package com.thomas.datalayer.features.users.remote
 
 import com.thomas.archtecture_framework.wrapper.ErrorWrapper
 import com.thomas.archtecture_framework.wrapper.ResultWrapper
 import com.thomas.datalayer.base.BaseDataSourceImpl
 import com.thomas.datalayer.base.ErrorDetailDTO
-import com.thomas.datalayer.features.users.model.UserDTO
+import com.thomas.datalayer.features.users.remote.model.UserDTO
 
 class UsersAPIDataSource(
     private val usersAPI: UsersAPI

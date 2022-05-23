@@ -1,10 +1,10 @@
 package com.thomas.fakes
 
-import com.thomas.datalayer.features.users.remote.model.UserDTO
+import com.thomas.datalayer.features.users.local.model.UserEntity
 
-class FakeUserDTO {
+class FakeUserEntity {
     companion object {
-        fun mock() = UserDTO(
+        fun mock() = UserEntity(
             id = 10,
             name = "José da Silva",
             username = "@josedasilva",

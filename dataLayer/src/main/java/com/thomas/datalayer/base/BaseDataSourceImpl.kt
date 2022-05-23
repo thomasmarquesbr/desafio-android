@@ -35,6 +35,30 @@ open class BaseDataSourceImpl {
             }
         }
 
+        inline fun <SUCCESS, reified ERROR> safeDatabasaCall(executeTaskAsync: () -> SUCCESS): ResultWrapper<SUCCESS, ErrorWrapper<ERROR>> {
+            return try {
+                val task = executeTaskAsync.invoke()
+                ResultWrapper(
+                    success = task,
+                    error = null,
+                    resultCode = 200
+                )
+            } catch (exception: Exception) {
+                Log.e("BaseDataSourceImpl", exception.message, exception)
+
+                val baseErrorData = ErrorWrapper<ERROR>(
+                    technicalErrorMessage = "$MESSAGE: ${exception.message}"
+                )
+
+                val statusCode = makeStatusCode(exception)
+
+                ResultWrapper(
+                    error = baseErrorData,
+                    resultCode = statusCode
+                )
+            }
+        }
+
         fun makeStatusCode(exception: Exception) = when (exception) {
             is SocketTimeoutException -> ResultCode.HTTP_RETROFIT_SOCKET_TIMEOUT_EXCEPTION
             is UnknownHostException -> ResultCode.HTTP_RETROFIT_UNKNOWN_HOST_EXCEPTION

@@ -36,6 +36,8 @@ ext {
     //Picasso
     picassoVersion = '2.71828'
     circleimageviewVersion = '3.0.0'
+    //Room
+    roomVersion = '2.4.1'
 
     //Test
     junitVersion = '4.13.2'
@@ -74,7 +76,11 @@ ext {
             gson                 : "com.google.code.gson:gson:$gsonVersion",
 
             picasso              : "com.squareup.picasso:picasso:$picassoVersion",
-            circleImageView      : "de.hdodenhof:circleimageview:$circleimageviewVersion"
+            circleImageView      : "de.hdodenhof:circleimageview:$circleimageviewVersion",
+
+            room                 : "androidx.room:room-runtime:$roomVersion",
+            roomAnnotation       : "androidx.room:room-compiler:$roomVersion",
+            roomKtx         : "androidx.room:room-ktx:$roomVersion"
     ]
 
     testDependencies = [
@@ -88,5 +94,6 @@ ext {
             koin                 : "io.insert-koin:koin-test:$koinVersion",
             mockk                : "io.mockk:mockk:$mockkVersion",
             navigationTest       : "androidx.navigation:navigation-testing:$navigationVersion",
+            room                 : "androidx.room:room-testing:$roomVersion"
     ]
 }

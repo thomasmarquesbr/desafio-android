@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,8 +46,12 @@ dependencies {
     implementation projectDependencies.retrofit
     implementation projectDependencies.retrofitGsonConverter
     implementation projectDependencies.okHttpLogInterceptor
+    implementation projectDependencies.room
+    kapt projectDependencies.roomAnnotation
+    implementation projectDependencies.roomKtx
 
     testImplementation(testFixtures(project(":domainLayer")))
     testImplementation testDependencies.mockk
     testImplementation testDependencies.junit
+    testImplementation testDependencies.room
 }

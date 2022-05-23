@@ -34,16 +34,16 @@ class GetContactsUseCaseTest {
         )
 
         coEvery {
-            usersRepository.getUsers()
+            usersRepository.getUsers(any())
         } returns FakeResultWrapper.mockSuccess(
             success = fakeList
         )
         val result = GetContactsUseCase(
             usersRepository
-        ).runAsync()
+        ).runAsync(GetContactsUseCase.Params(false))
 
         coVerifySequence {
-            usersRepository.getUsers()
+            usersRepository.getUsers(any())
         }
 
         Assert.assertNull(result.error)
@@ -60,17 +60,17 @@ class GetContactsUseCaseTest {
             )
 
             coEvery {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             } returns FakeResultWrapper.mockError(
                 error = fakeError
             )
 
             val result = GetContactsUseCase(
                 usersRepository
-            ).runAsync()
+            ).runAsync(GetContactsUseCase.Params(false))
 
             coVerifySequence {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             }
 
             Assert.assertNull(result.success)
@@ -88,17 +88,17 @@ class GetContactsUseCaseTest {
             )
 
             coEvery {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             } returns FakeResultWrapper.mockError(
                 error = fakeError
             )
 
             val result = GetContactsUseCase(
                 usersRepository
-            ).runAsync()
+            ).runAsync(GetContactsUseCase.Params(false))
 
             coVerifySequence {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             }
 
             Assert.assertNull(result.success)
@@ -116,17 +116,17 @@ class GetContactsUseCaseTest {
             )
 
             coEvery {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             } returns FakeResultWrapper.mockError(
                 error = fakeError
             )
 
             val result = GetContactsUseCase(
                 usersRepository
-            ).runAsync()
+            ).runAsync(GetContactsUseCase.Params(false))
 
             coVerifySequence {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             }
 
             Assert.assertNull(result.success)
@@ -144,17 +144,17 @@ class GetContactsUseCaseTest {
             )
 
             coEvery {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             } returns FakeResultWrapper.mockError(
                 error = fakeError
             )
 
             val result = GetContactsUseCase(
                 usersRepository
-            ).runAsync()
+            ).runAsync(GetContactsUseCase.Params(false))
 
             coVerifySequence {
-                usersRepository.getUsers()
+                usersRepository.getUsers(any())
             }
 
             Assert.assertNull(result.success)
@@ -166,17 +166,17 @@ class GetContactsUseCaseTest {
         val fakeError = ErrorWrapper<ErrorDetailModel>()
 
         coEvery {
-            usersRepository.getUsers()
+            usersRepository.getUsers(any())
         } returns FakeResultWrapper.mockError(
             error = fakeError
         )
 
         val result = GetContactsUseCase(
             usersRepository
-        ).runAsync()
+        ).runAsync(GetContactsUseCase.Params(false))
 
         coVerifySequence {
-            usersRepository.getUsers()
+            usersRepository.getUsers(any())
         }
 
         Assert.assertNull(result.success)
